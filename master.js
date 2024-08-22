@@ -1,8 +1,5 @@
 // marster branch
 
+// delete smth and some other stuff
 
-// master update
-
-
-// another edit of master
-// edit something in master
+// the stuff
