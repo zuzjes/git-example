@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Get the current branch name
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Fetch the latest changes from the remote
+git fetch origin
+
+# Get the upstream branch (e.g., origin/branch-name)
+upstream_branch="origin/$current_branch"
+
+# Check if the current branch is up-to-date with the remote
+if [ "$(git rev-parse $current_branch)" != "$(git rev-parse $upstream_branch)" ]; then
+  echo "Error: Your branch is not up to date with the upstream branch."
+  echo "Please pull the latest changes before rebasing."
+  exit 1
+fi
+
+# If up-to-date, allow the rebase to proceed
+exit 0
